@@ -1,7 +1,7 @@
-import express from "express";
+import express from 'express';
 
-import config from "./config";
-import routes from "./routes";
+import config from './config';
+import routes from './routes';
 
 const app = express();
 

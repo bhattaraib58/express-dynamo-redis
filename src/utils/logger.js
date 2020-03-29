@@ -1,6 +1,6 @@
-import winston, { format } from "winston";
+import winston, { format } from 'winston';
 
-import config from "../config";
+import config from '../config';
 
 /**
  * Create a new winston logger.
