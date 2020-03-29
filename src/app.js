@@ -1,14 +1,11 @@
 import express from "express";
 
 import config from "./config";
+import routes from "./routes";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    name: config.app.name,
-    version: config.app.version
-  });
-});
+// API Routes
+app.use(config.baseAPI, routes);
 
 export default app;

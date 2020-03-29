@@ -17,7 +17,8 @@ const config = {
   },
   log: {
     level: process.env.LOG_LEVEL || "info"
-  }
+  },
+  baseAPI: process.env.APP_BASE_PATH || "/"
 };
 
 export default config;
