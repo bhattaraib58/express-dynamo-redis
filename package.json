@@ -8,7 +8,26 @@
   "scripts": {
     "start": "node dist/index.js",
     "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
-    "build": "rimraf dist && babel src -D --out-dir dist"
+    "build": "rimraf dist && babel src -D --out-dir dist",
+    "eslint": "eslint src",
+    "eslint:fix": "eslint --fix src",
+    "prettier": "prettier --write \"{src,api}/**/*.js\"",
+    "lint": "yarn prettier && eslint src ; exit 0",
+    "lint:fix": "yarn prettier && eslint src  --fix; exit 0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,yml,yml,json,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -19,7 +38,14 @@
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-leapfrog": "^2.0.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.10",
     "nodemon": "^2.0.2",
+    "prettier": "^2.0.2",
     "rimraf": "^3.0.2"
   }
 }
