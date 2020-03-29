@@ -1,4 +1,39 @@
+# Logs
+.DS_Store
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
 node_modules
+
+# Favour yarn.lock, heroku fails if both included
+package-lock.json
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn integrity file
+.yarn-integrity
+
+# IntelliJ IDE
+.idea
+
+# Build directory
+dist
+
+# Dotenv configuration
 .env
-build/
-dist/
+
+# Visual Studio Code
+.vscode
+
+# Tests
+coverage
+.nyc_output
+
+# Vim swp files
+*.swp
