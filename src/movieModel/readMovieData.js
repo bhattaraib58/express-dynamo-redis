@@ -15,7 +15,7 @@ const params = {
 dbModel
   .get(params)
   .then((data) => {
-    logger.info(data);
+    logger.info('Data:', data);
   })
   .catch((err) => {
     logger.error(err);

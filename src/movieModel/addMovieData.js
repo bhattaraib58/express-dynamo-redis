@@ -16,6 +16,6 @@ const params = {
   }
 };
 
-dbModel.get(params).then((data) => {
+dbModel.add(params).then((data) => {
   logger.info('Data Added successfully', data);
 });
