@@ -1,6 +1,6 @@
 import logger from '../utils/logger';
 
-import { dynamoDB } from '../dynamoDB';
+import * as dbModel from '../models/dbModel';
 
 const TABLE_NAME = 'Movies';
 
@@ -20,15 +20,14 @@ const params = {
   }
 };
 
-dynamoDB.createTable(params, (err, data) => {
-  if (err) {
+dbModel
+  .createTable(params)
+  .then((data) => {
+    logger.info(`Created Table ${TABLE_NAME} Successfully. Table description JSON: ${JSON.stringify(data, null, 2)}`);
+  })
+  .catch((err) => {
     logger.error(
       `Unable to create table ${TABLE_NAME}. Error JSON:
-      ${JSON.stringify(err, null, 2)}`
+    ${JSON.stringify(err, null, 2)}`
     );
-
-    return;
-  }
-
-  logger.info(`Created Table ${TABLE_NAME} Successfully. Table description JSON: ${JSON.stringify(data, null, 2)}`);
-});
+  });
