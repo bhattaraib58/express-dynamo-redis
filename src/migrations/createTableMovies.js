@@ -29,11 +29,5 @@ dynamoDB.createTable(params, (err, data) => {
     return;
   }
 
-  logger.info(
-    `Created Table ${TABLE_NAME} Successfully. Table description JSON: ${JSON.stringify(
-      data,
-      null,
-      2
-    )}`
-  );
+  logger.info(`Created Table ${TABLE_NAME} Successfully. Table description JSON: ${JSON.stringify(data, null, 2)}`);
 });

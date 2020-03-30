@@ -9,11 +9,7 @@ const config = {
   },
   environment: {
     nodeENV: process.env.NODE_ENV || 'development',
-    isProduction:
-      process.env.NODE_ENV &&
-      process.env.NODE_ENV.toLowerCase() === 'production'
-        ? true
-        : false
+    isProduction: process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() === 'production' ? true : false
   },
   log: {
     level: process.env.LOG_LEVEL || 'info'
