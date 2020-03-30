@@ -1,5 +1,6 @@
-import dynamoDB from '../dynamoDB';
 import logger from '../utils/logger';
+
+import { dynamoDB } from '../dynamoDB';
 
 const TABLE_NAME = 'Movies';
 

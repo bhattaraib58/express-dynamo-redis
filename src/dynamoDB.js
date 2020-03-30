@@ -6,6 +6,6 @@ AWS.config.update({
   endpoint: `http://${config.dynamoDB.host}:${config.dynamoDB.port}`
 });
 
-const dynamoDB = new AWS.DynamoDB();
+export const dynamoDB = new AWS.DynamoDB();
 
-export default dynamoDB;
+export const dynamoDBDocClient = new AWS.DynamoDB.DocumentClient();
