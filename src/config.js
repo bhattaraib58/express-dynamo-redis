@@ -18,7 +18,12 @@ const config = {
   log: {
     level: process.env.LOG_LEVEL || 'info'
   },
-  baseAPI: process.env.APP_BASE_PATH || '/'
+  baseAPI: process.env.APP_BASE_PATH || '/',
+  dynamoDB: {
+    port: process.env.DYNAMO_DB_PORT || 8000,
+    host: process.env.DYNAMO_DB_HOST || '0.0.0.0',
+    region: process.env.DYNAMO_DB_REGION || 'us-west-2'
+  }
 };
 
 export default config;
