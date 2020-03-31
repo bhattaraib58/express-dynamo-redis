@@ -32,3 +32,63 @@ export function fetchByYearAndTitle(filter) {
 
   return dbModel.get(params);
 }
+
+/**
+ * Create/Add New Movie Info.
+ *
+ * @param {*} data
+ * @returns {Promise}
+ */
+export function create(data) {
+  const params = {
+    TableName: TABLE_NAME,
+    Item: { ...data }
+  };
+
+  return dbModel.create(params);
+}
+
+/**
+ * Update Movie Info.
+ *
+ * @param {*} year
+ * @param {*} title
+ * @param {*} data {info}.
+ * @returns
+ */
+export function update(year, title, data) {
+  const info = data.info || {};
+  const params = {
+    TableName: TABLE_NAME,
+    Key: {
+      year,
+      title
+    },
+    UpdateExpression: 'set info = :i',
+    ExpressionAttributeValues: {
+      ':i': info
+    },
+    ReturnValues: 'UPDATED_NEW'
+  };
+
+  return dbModel.update(params);
+}
+
+/**
+ * Delete Movie Info.
+ *
+ * @param {*} year
+ * @param {*} title
+ * @returns
+ */
+export function remove(year, title) {
+  const params = {
+    TableName: TABLE_NAME,
+    Key: {
+      year,
+      title
+    }
+  };
+
+  return dbModel.remove(params);
+}

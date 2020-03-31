@@ -19,7 +19,7 @@ export function createTable(params) {
 }
 
 /**
- * DynamoDB Common Get Service.
+ * DynamoDB Common Get All Service.
  *
  * @param {*} params
  * @returns {Promise}
@@ -55,12 +55,12 @@ export function get(params) {
 }
 
 /**
- * DynamoDB Common NEW Service.
+ * DynamoDB Common Create Service.
  *
  * @param {*} params
  * @returns {Promise}
  */
-export function add(params) {
+export function create(params) {
   return new Promise((resolve, reject) => {
     dynamoDBDocClient.put(params, (err, data) => {
       if (err) {
@@ -81,6 +81,24 @@ export function add(params) {
 export function update(params) {
   return new Promise((resolve, reject) => {
     dynamoDBDocClient.update(params, (err, data) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
+  });
+}
+
+/**
+ * DynamoDB Common Remove Service.
+ *
+ * @param {*} params
+ * @returns {Promise}
+ */
+export function remove(params) {
+  return new Promise((resolve, reject) => {
+    dynamoDBDocClient.delete(params, (err, data) => {
       if (err) {
         return reject(err);
       }

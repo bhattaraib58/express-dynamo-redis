@@ -26,3 +26,42 @@ export async function fetchByYearAndTitle(year, title) {
 
   return data;
 }
+
+/**
+ * Service To Add New Movie Info.
+ *
+ * @param {*} params
+ * @returns
+ */
+export async function create(params) {
+  const data = await movieDB.create(params);
+
+  return data;
+}
+
+/**
+ * Service To Update Movie Info.
+ *
+ * @param {*} year
+ * @param {*} title
+ * @param {*} params
+ * @returns
+ */
+export async function update(year, title, params) {
+  const data = await movieDB.update(year, title, params);
+
+  return data;
+}
+
+/**
+ * Service To Delete Movie Info.
+ *
+ * @param {*} year
+ * @param {*} title
+ * @returns
+ */
+export async function remove(year, title) {
+  const data = await movieDB.remove(year, title);
+
+  return data;
+}
