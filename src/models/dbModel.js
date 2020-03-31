@@ -19,6 +19,24 @@ export function createTable(params) {
 }
 
 /**
+ * DynamoDB Remove Table Service.
+ *
+ * @param {*} params
+ * @returns {Promise}
+ */
+export function removeTable(params) {
+  return new Promise((resolve, reject) => {
+    dynamoDB.deleteTable(params, (err, data) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
+  });
+}
+
+/**
  * DynamoDB Common Get All Service.
  *
  * @param {*} params
