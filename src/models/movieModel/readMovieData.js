@@ -1,6 +1,6 @@
-import logger from '../utils/logger';
+import logger from '../../utils/logger';
 
-import * as dbModel from '../models/dbModel';
+import * as dbModel from '../dbModel';
 
 const TABLE_NAME = 'Movies';
 
