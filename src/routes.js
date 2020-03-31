@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import movieRoutes from './routes/movie';
+
 import config from './config';
 
 /**
@@ -13,5 +15,7 @@ router.get('/', (req, res) => {
     version: config.app.version
   });
 });
+
+router.use('/movie', movieRoutes);
 
 export default router;
