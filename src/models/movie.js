@@ -21,6 +21,27 @@ export function fetchAll() {
  * @param {*} filter
  * @returns {Promise}
  */
+export function fetchByYear(filter) {
+  const params = {
+    TableName: TABLE_NAME,
+    KeyConditionExpression: '#yr = :yyyy',
+    ExpressionAttributeNames: {
+      '#yr': 'year'
+    },
+    ExpressionAttributeValues: {
+      ':yyyy': filter.year
+    }
+  };
+
+  return dbModel.query(params);
+}
+
+/**
+ * Fetch Movie By Year and Title.
+ *
+ * @param {*} filter
+ * @returns {Promise}
+ */
 export function fetchByYearAndTitle(filter) {
   const params = {
     TableName: TABLE_NAME,
