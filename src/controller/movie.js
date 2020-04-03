@@ -24,6 +24,25 @@ export async function fetchAll(req, res, next) {
  * @param {*} res
  * @param {*} next
  */
+export async function fetchByYear(req, res, next) {
+  try {
+    const year = parseInt(req.params.year);
+
+    const data = await movieService.fetchByYear(year);
+
+    res.json({ data });
+  } catch (err) {
+    next(err);
+  }
+}
+
+/**
+ * Controller to Get Movie By Year And Title.
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 export async function fetchByYearAndTitle(req, res, next) {
   try {
     const year = parseInt(req.params.year);
