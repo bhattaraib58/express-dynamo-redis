@@ -5,6 +5,8 @@ const router = Router();
 
 router.get('/', movieController.fetchAll);
 
+router.get('/:year', movieController.fetchByYear);
+
 router.get('/:year/:title', movieController.fetchByYearAndTitle);
 
 router.post('/', movieController.create);
