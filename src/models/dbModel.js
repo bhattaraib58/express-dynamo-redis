@@ -73,6 +73,24 @@ export function get(params) {
 }
 
 /**
+ * DynamoDB Common Query Service.
+ *
+ * @param {*} params
+ * @returns {Promise}
+ */
+export function query(params) {
+  return new Promise((resolve, reject) => {
+    dynamoDBDocClient.query(params, (err, data) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
+  });
+}
+
+/**
  * DynamoDB Common Create Service.
  *
  * @param {*} params
