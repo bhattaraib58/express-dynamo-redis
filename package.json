@@ -1,6 +1,6 @@
 {
   "name": "express-dynamo-redis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:bhattaraib58/express-dynamo-redis.git",
   "author": "Biplap Bhattarai <bhattaraib58@gmail.com>",
@@ -11,13 +11,15 @@
     "build": "rimraf dist && babel src -D --out-dir dist",
     "eslint": "eslint src",
     "eslint:fix": "eslint --fix src",
-    "prettier": "prettier --write \"{src,api}/**/*.js\"",
-    "lint": "yarn prettier && eslint src ; exit 0",
-    "lint:fix": "yarn prettier && eslint src  --fix; exit 0"
+    "lint": "yarn prettier && yarn eslint",
+    "lint:fix": "yarn prettier:fix && yarn eslint:fix",
+    "prettier": "prettier --list-different \"{src,api}/**/*.js\" \"{src,api}/**/*.{md,yml,yml,json,css}\" --loglevel warn",
+    "prettier:fix": "prettier --write \"{src,api}/**/*.js\" \"{src,api}/**/*.{md,yml,yml,json,css}\" --loglevel warn"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn lint:fix"
     }
   },
   "lint-staged": {
