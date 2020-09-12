@@ -9,12 +9,12 @@
     "start": "node dist/index.js",
     "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
     "build": "rimraf dist && babel src -D --out-dir dist",
-    "eslint": "eslint src",
-    "eslint:fix": "eslint --fix src",
+    "eslint": "eslint \"{src,api,public}/**/*.{js,jsx}\"",
+    "eslint:fix": "eslint --fix \"{src,api,public}/**/*.{js,jsx}\"",
     "lint": "yarn prettier && yarn eslint",
     "lint:fix": "yarn prettier:fix && yarn eslint:fix",
-    "prettier": "prettier --list-different \"{src,api}/**/*.js\" \"{src,api}/**/*.{md,yml,yml,json,css}\" --loglevel warn",
-    "prettier:fix": "prettier --write \"{src,api}/**/*.js\" \"{src,api}/**/*.{md,yml,yml,json,css}\" --loglevel warn"
+    "prettier": "prettier --list-different \"{src,api,public}/**/*.{js,jsx,html,css,md,yml,yml,json}\" --loglevel warn",
+    "prettier:fix": "prettier --write \"{src,api,public}/**/*.{js,jsx,html,css,md,yml,yml,json}\" --loglevel warn"
   },
   "husky": {
     "hooks": {
@@ -23,16 +23,16 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,jsx}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{md,yml,yml,json,css}": [
+    "*.{html,css,md,yml,yml,json}": [
       "prettier --write"
     ]
   },
   "dependencies": {
-    "aws-sdk": "^2.648.0",
+    "aws-sdk": "^2.751.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
