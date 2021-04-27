@@ -37,7 +37,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-status-codes": "^2.1.2",
-    "redis": "^3.0.2",
+    "redis": "^3.1.1",
     "response-time": "^2.3.2",
     "winston": "^3.2.1"
   },
